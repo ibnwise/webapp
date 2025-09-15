@@ -1,0 +1,14 @@
+
+:root{--bg:#fff;--text:#141414;--muted:#6b7280}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:24px;background:var(--bg);color:var(--text)}
+.container{max-width:980px;margin:0 auto}
+.logs-table{width:100%;border-collapse:collapse}
+.logs-table th, .logs-table td{padding:12px;border-bottom:1px solid #e5e7eb;text-align:left}
+.logs-table th{background:#f9fafb;font-weight:600}
+.logs-table td{vertical-align:top}
+.pagination{display:flex;gap:8px;margin-top:16px}
+.pagination a{display:inline-flex;padding:8px 12px;border-radius:6px;text-decoration:none;color:var(--text);border:1px solid transparent}
+.pagination a.active{background:#efefef;font-weight:700}
+.active-menu {
+  background-color: #ededed;
+}
