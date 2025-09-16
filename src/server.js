@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const logsRoute = require('./routes/logs');
+const logsRoute = require('./interface/http/routes/logs');
 require('dotenv').config();
 
 const app = express();
@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static frontend
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './interface/views')));
 
 // ✅ Serve your views folder
 // app.use('public/views', express.static(path.join(__dirname, 'views')));
