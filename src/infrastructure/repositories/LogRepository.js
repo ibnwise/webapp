@@ -7,6 +7,15 @@ class LogRepository {
     );
     return result.rows;
   }
+
+  /*async save(log) {
+    const result = await db.query(
+      'INSERT INTO logs (details, timestamp) VALUES ($1, $2) RETURNING id',
+      [log.details, log.timestamp]
+    );
+    // return a new Log entity with the inserted ID
+    return new Log(result.rows[0].id, log.details, log.timestamp);
+  }*/
 }
 
 module.exports = LogRepository;
