@@ -1,21 +1,29 @@
-// domain/entities/Log.js
-
+// src/domain/entities/Log.js
 class Log {
-  constructor({ id = null, message, level = 'info', timestamp = new Date() }) {
-    if (!message) {
-      throw new Error('Log requires a message');
-    }
+  constructor({ id = null, userId = null, actionId, tableName, recordId = null, timestamp = new Date(), details = null }) {
+    if (!actionId) throw new Error('Log requires actionId');
+    if (!tableName) throw new Error('Log requires tableName');
 
-    this.id = id;               // Primary key (DB-assigned or in-memory)
-    this.message = message;     // Log content
-    this.level = level;         // e.g. 'info', 'warn', 'error'
-    this.timestamp = timestamp; // When it was created
+    this.id = id;
+    this.userId = userId;
+    this.actionId = actionId;
+    this.tableName = tableName;
+    this.recordId = recordId;
+    this.timestamp = timestamp instanceof Date ? timestamp : new Date(timestamp);
+    this.details = details;
   }
 
-  // Example domain behavior: format log for display
-  format() {
-    return `[${this.timestamp.toISOString()}] [${this.level.toUpperCase()}] ${this.message}`;
+  // helper
+  toDTO() {
+    return {
+      id: this.id,
+      userId: this.userId,
+      actionId: this.actionId,
+      tableName: this.tableName,
+      recordId: this.recordId,
+      timestamp: this.timestamp.toISOString(),
+      details: this.details
+    };
   }
 }
-
 module.exports = Log;
