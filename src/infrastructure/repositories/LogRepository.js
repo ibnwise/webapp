@@ -20,7 +20,7 @@ class LogRepository {
     }));
   }
 
-  async save(log) {
+  /*async save(log) {
     const result = await db.query(
       `INSERT INTO logs (user_id, action_id, table_name, record_id, timestamp, details)
        VALUES ($1, $2, $3, $4, $5, $6)
@@ -28,7 +28,7 @@ class LogRepository {
       [log.userId, log.actionId, log.tableName, log.recordId, log.timestamp, log.details]
     );
     return new Log({ ...log, id: result.rows[0].id });
-  }
+  }*/
 }
 
 module.exports = LogRepository;

@@ -43,7 +43,7 @@ class Logger {
       details: message
     });
 
-    await this.logRepository.save(logEntry);
+    //await this.logRepository.save(logEntry);
 
     // Also emit to console for app-level visibility
     if (level === 'error') console.error(logEntry.toDTO());
